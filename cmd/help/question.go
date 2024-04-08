@@ -1,11 +1,13 @@
 package help
 
+import "github.com/wangyi12358/go-tools/array"
+
 type Command struct {
 	Title string
 	Short string
 }
 
-var commands = []*Command{
+var Commands = []*Command{
 	{
 		Title: "修改最近一次提交的信息",
 		Short: "git commit --amend",
@@ -31,3 +33,7 @@ var commands = []*Command{
 		Short: "git restore --staged <file> | git restore .",
 	},
 }
+
+var Titles = array.Map(Commands, func(command *Command) string {
+	return command.Title
+})
